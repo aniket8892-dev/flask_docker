@@ -18,7 +18,7 @@ node {
       // copy source code from local file system and test
       // for a Dockerfile to build the Docker image
 
-      git branch: "${params.BRANCH}", url: url: 'https://github.com/aniket8892-dev/flask_docker.git'
+      git branch: "${params.BRANCH}", url: 'https://github.com/aniket8892-dev/flask_docker.git'
       if (!fileExists("Dockerfile")) {
          error('Dockerfile missing.')
       }
