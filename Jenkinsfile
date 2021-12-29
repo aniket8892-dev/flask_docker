@@ -1,24 +1,9 @@
-properties([
-    parameters([
-        gitParameter(branch: '',
-                     branchFilter: 'origin/(.*)',
-                     defaultValue: 'main',
-                     description: '',
-                     name: 'BRANCH',
-                     quickFilterEnabled: false,
-                     selectedValue: 'NONE',
-                     sortMode: 'NONE',
-                     tagFilter: '*',
-                     type: 'PT_BRANCH')
-    ])
-])
-
 node {
-   stage('Get Source') {
+   stage('Code_Pull') {
       // copy source code from local file system and test
       // for a Dockerfile to build the Docker image
 
-      git branch: "${params.BRANCH}", url: 'https://github.com/aniket8892-dev/flask_docker.git'
+      git branch: "main", url: 'https://github.com/aniket8892-dev/flask_docker.git'
       if (!fileExists("Dockerfile")) {
          error('Dockerfile missing.')
       }
