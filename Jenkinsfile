@@ -2,7 +2,7 @@ node {
    stage('Get Source') {
       // copy source code from local file system and test
       // for a Dockerfile to build the Docker image
-      git checkout main
+      git branch: 'main', url: 'https://github.com/aniket8892-dev/flask_docker.git'
       if (!fileExists("Dockerfile")) {
          error('Dockerfile missing.')
       }
