@@ -2,7 +2,7 @@ node {
    stage('Get Source') {
       // copy source code from local file system and test
       // for a Dockerfile to build the Docker image
-      checkout scm
+      git checkout main
       if (!fileExists("Dockerfile")) {
          error('Dockerfile missing.')
       }
